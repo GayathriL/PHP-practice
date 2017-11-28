@@ -10,7 +10,7 @@
 <?php
 
 $nameErr = $emailErr = $genderErr = $websiteErr =$passwordErr=$confirmpassErr=$phnnoErr= "";
-$name = $email = $gender = $comment = $website =$check_list=$options=$password=$confirmpass=$phnno= "";
+$name = $email = $gender = $comment = $website =$check_list=$password=$confirmpass=$phnno= "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
@@ -63,13 +63,7 @@ else{
   $check_list=test_input($_POST["check_list"]);
 }
 
-if(empty($_POST["options"])){
 
-  $options="";
-}
-else{
-  $options=test_input($_POST["options"]);
-}
 
   
   if(empty($_POST["password"])){
@@ -99,7 +93,7 @@ else{
       $phnErr="Invalid number";
   }
   
-      }
+  }
 
   
 }
@@ -199,7 +193,7 @@ function test_input($data) {
 
           ?>
           
-          <option value="<>php echo $i?>"
+          <option value="<?php echo $i?>"
           
           <?php
 
@@ -256,7 +250,7 @@ function test_input($data) {
 
     Select city:
 
-       <select name="cityoptions">
+       <select name="cityoptions[]">
 
         <option>choose cities</option>
 
@@ -357,13 +351,29 @@ echo "Technical skills:";
     }
   }
 
+echo "Country:";
+    
+    if(!empty($_POST['countryoptions'])){
+    foreach($_POST['countryoptions'] as $opt){
+    echo $opt."<br><br>";
+   }
+ }
+
 echo "State:";
-    echo "<br><br>";
+    
     if(!empty($_POST['options'])){
     foreach($_POST['options'] as $opt){
     echo $opt."<br><br>";
    }
  }
+
+ echo "City:";
+
+    if(!empty($_POST['cityoptions'])){
+      foreach($_POST['cityoptions'] as $opt){
+        echo $opt."<br><br>";
+      }
+    }
 
 echo "Hobbies:";
    echo "<br><br>";
@@ -372,6 +382,8 @@ echo "Hobbies:";
         echo $key ."=". $value."<br><br>";
       }
     }
+
+
 
 ?>
 
