@@ -157,6 +157,7 @@ function test_input($data) {
 
      <?php
          
+
         
          $check=array("C/C++","Java","PHP","Html/Css","Unix/Linux");
 
@@ -167,10 +168,13 @@ function test_input($data) {
        <input type="checkbox" name="check_list[]" value="<?php echo $value; ?>" 
        <?php  
            $a=$_POST['check_list'];
+           if(!empty($a))
+           {
           if(in_array($value, $a)) 
             { 
               echo "checked=checked"; 
             } 
+          }
             ?> 
             > <?php echo $value;?> <br>
 
@@ -180,6 +184,39 @@ function test_input($data) {
        ?>
 
       <br><br>
+
+    Select country:
+
+        <select name="countryoptions[]">
+
+          <option>Choose country</option>
+
+          <?php
+
+          $country=array("India","USA","France","China","Brazill");
+
+          foreach($country as $i){
+
+          ?>
+          
+          <option value="<>php echo $i?>"
+          
+          <?php
+
+          $a=$_POST['countryoptions'];
+          if(!empty($a)){
+            if(in_array($i,$a))
+            {
+              echo "selected=selected";
+            }
+          }
+          ?>
+          ><?php echo $i;?></option>
+          <?php
+          }
+          ?>
+          </select><br><br>  
+
  
 
     Select state:
@@ -201,10 +238,12 @@ function test_input($data) {
               <?php 
 
                $a=$_POST['options'];
+               if(!empty($a)){
                if(in_array($i,$a))
                {
                 echo "selected=selected";
                }
+             }
 
               ?>
 
@@ -215,6 +254,37 @@ function test_input($data) {
         ?>
          </select><br><br>
 
+    Select city:
+
+       <select name="cityoptions">
+
+        <option>choose cities</option>
+
+        <?php
+
+        $city=array("Bangalore","Mangalore","chennai","Madurai");
+
+        foreach($city as $i){
+
+        ?>
+
+        <option value="<?php echo $i;?>"
+
+        <?php
+        $a=$_POST['cityoptions'];
+        if(!empty($a)){
+          if(in_array($i,$a))
+          {
+            echo "selected=selected";
+          }
+        }
+        ?>
+        ><?php echo $i;?></option>
+        <?php
+      }
+      ?>
+    </select><br><br>
+    
 
 
     Hobbies:
@@ -235,10 +305,12 @@ function test_input($data) {
 
         <?php  
            $a=$_POST['hobbies'];
+           if(!empty($a)){
           if(in_array($i, $a)) 
             { 
               echo "selected=selected"; 
             } 
+          }
             ?> 
 
         > <?php echo $i;?></option>
@@ -279,20 +351,27 @@ echo "<br><br>";
 echo "Technical skills:";
 
   echo "<br><br>";
+  if(!empty($_POST['check_list'])){
  foreach($_POST['check_list'] as $key=>$value){
       echo $key ."=". $value."<br><br>";
     }
+  }
 
 echo "State:";
+    echo "<br><br>";
+    if(!empty($_POST['options'])){
     foreach($_POST['options'] as $opt){
     echo $opt."<br><br>";
    }
+ }
 
 echo "Hobbies:";
-   echo "<br>";
+   echo "<br><br>";
+   if(!empty($_POST['hobbies'])){
    foreach($_POST['hobbies'] as $key=>$value){
         echo $key ."=". $value."<br><br>";
       }
+    }
 
 ?>
 
