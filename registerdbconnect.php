@@ -1,10 +1,9 @@
-
 <?php
 class DBController {
 	private $host = "localhost";
 	private $user = "root";
 	private $password = "compass";
-	private $database = "dropdown";
+	private $database = "login";
 	private $conn;
 	
 	function __construct() {
@@ -23,7 +22,8 @@ class DBController {
 	
 	function runQuery($query) {
 		$result = mysqli_query($this->conn,$query);
-					return $result;
+		
+			return $result;
 	}
 	
 	function numRows($query) {
