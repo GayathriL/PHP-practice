@@ -15,13 +15,17 @@ $city=$_POST['city'];
 	$update=new DBController();
 	$query="UPDATE details SET city='$city' WHERE id=1";
 	$results=$update->runQuery($query);
-}
-if($results)
+
+/*	if($results)
 {
 	echo "update successfully";
 }
 else
 {
 	echo "not update";
+}*/
+
+	echo json_encode($results);
 }
+
 ?>

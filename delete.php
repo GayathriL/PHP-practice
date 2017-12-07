@@ -14,15 +14,16 @@ require_once("cruddb.php");
 $delete=new DBController();
 $query="DELETE FROM details WHERE id=16";
 $results=$delete->runQuery($query);
+echo json_encode($results);
 }
-if($results)
-{
-	echo "Deleted successfully";
+// if($results)
+// {
+// 	echo "Deleted successfully";
 
-}
-else
-{
-	echo "not happen";
-}
+// }
+// else
+// {
+// 	echo "not happen";
+// }
 
 ?>
