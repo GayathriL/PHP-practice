@@ -15,11 +15,11 @@
 </style>
 
 <body>
-	<a href="Logoutuser.php">LOGOUT</a>
+	<a href="../controller/Logoutuser.php">LOGOUT</a>
 <div id="Sign-In"> 
 	<fieldset style="width:30%"><legend>CHANGE HERE</legend>
 	
-	<input type="button" name="edit" onclick="location.href='Edituser.php';" value="Edit"><br><br>
+	<input type="button" name="edit" onclick="location.href='../view/Edituser.php';" value="Edit"><br><br>
 	<input type="button" name="view" value="View Profile"><br><br>
 	
 </fieldset>

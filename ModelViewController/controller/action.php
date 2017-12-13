@@ -1,6 +1,6 @@
 <?php
 
-include("Logindb.php");
+include("../model/Logindb.php");
 
 if(isset($_GET['status']))
 {

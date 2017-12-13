@@ -19,7 +19,7 @@
 	<div id="Sign-In"> 
 	<fieldset style="width:30%"><legend>EDIT HERE</legend>
 
-    <form method="post" action="allocationedit.php">
+    <form method="post" action="../controller/allocationedit.php">
 
 	First Name:<input type="text" name="firstname" value="<?php echo $row['firstname'];?>"><br>
 	Last Name:<input type="text" name="lastname" value="<?php echo $row['lastname'];?>"><br>

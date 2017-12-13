@@ -1,6 +1,6 @@
 <?php
 
-require_once("Logindb.php");
+require_once("../model/Logindb.php");
 $enable=new DBController();
 $query="SELECT firstname,userid,status FROM user";
 $results=$enable->runQuery($query);

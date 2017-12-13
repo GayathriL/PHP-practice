@@ -2,7 +2,7 @@
 <body>
      
 	
-	<a href="Listusers.php">List Of users</a>
-	<a href="Loginadmin.php">Logout</a>
+	<a href="../controller/Listusers.php">List Of users</a>
+	<a href="../controller/admincontroller.php">Logout</a>
 </body>
 </html>

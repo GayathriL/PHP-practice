@@ -17,15 +17,10 @@
 	<div id="Sign-In"> 
 	<fieldset style="width:30%"><legend>DELETE HERE</legend>
 
-    <form method="post" action="allocationdelete.php">
+    <form method="post" action="../controller/allocationdelete.php">
 
 	First Name:<input type="text" name="firstname"><br>
 	Last Name:<input type="text" name="lastname"><br>
-	Password:<input type="password" name="pass"><br>
-	Email:<input type="text" name="email"><br>
-	Qualification:<input type="text" name="qualification"><br>
-	City:<input type="text" name="city"><br>
-	State:<input type="text" name="state"><br>
 	Userid:<input type="text" name="userid"><br>
 	<input type="submit" name="submit" value="Delete">
 </form>

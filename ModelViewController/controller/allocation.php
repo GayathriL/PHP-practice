@@ -1,6 +1,10 @@
 <?php
-require_once("user.php");
-require_once("Logindb.php");
+require_once("../model/classuser.php");
+require_once("../model/Logindb.php");
+
+require_once("../view/user.php");
+
+
 
 $firstname=$_POST['firstname'];
 $lastname=$_POST['lastname'];

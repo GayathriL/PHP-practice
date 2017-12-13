@@ -18,7 +18,7 @@
 	<div id="Sign-In"> 
 	<fieldset style="width:30%"><legend>REGISTER HERE</legend>
 
-	<form action="allocation.php" method="post">
+	<form action="../controller/allocation.php" method="post">
 
 	First Name:<input type="text" name="firstname"><br>
 	Last Name:<input type="text" name="lastname"><br>

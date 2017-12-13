@@ -10,6 +10,9 @@ class User{
 	private $qualification;
 	private $city;
 	private $state;
+
+	
+	
 	
 
 
@@ -55,6 +58,14 @@ class User{
 	}
 
 
+
+
+
+
+
+
 }
+
+
 
 ?>

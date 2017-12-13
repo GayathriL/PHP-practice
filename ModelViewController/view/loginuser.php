@@ -19,7 +19,7 @@
 	<div id="Sign-In"> 
 	<fieldset style="width:30%"><legend>LOGIN HERE</legend>
 
-	<form method="post" action="">
+	<form method="post" action="../controller/userprofilechangecontroller.php">
     
     Firstname:<input type="text" name="name"><br>
     Lastname:<input type="text" name="lastname"><br>

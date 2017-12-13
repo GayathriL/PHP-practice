@@ -1,7 +1,8 @@
 <?php
+require_once("../model/classedit.php");
+require_once("../model/Logindb.php");
 
-require_once("Logindb.php");
-require_once("Edituser.php");
+require_once("../view/Edituser.php");
 
 
 

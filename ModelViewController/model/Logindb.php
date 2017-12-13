@@ -55,8 +55,7 @@ class DBController {
 		$rowcount = mysqli_num_rows($result);
 		return $rowcount;	
 	}
-
-public function addUser($user)
+	public function addUser($user)
 {
 	$firstname=$user->getFirstName();
 	$lastname=$user->getLastName();
@@ -81,6 +80,8 @@ public function addUser($user)
 
 
    $sth->execute();
+
+   
    
 
 
@@ -116,24 +117,12 @@ public function DeleteUser($deleteuser)
 {
 	$firstname=$deleteuser->getFirstName();
 	$lastname=$deleteuser->getLastName();
-	$password=$deleteuser->getPassword();
-	$email=$deleteuser->getEmail();
-	$qualification=$deleteuser->getQualification();
-	$city=$deleteuser->getCity();
-	$state=$deleteuser->getState();
 	$userid=$deleteuser->getUserId();
 
 	
 
 	$sth = $this->pdo->prepare('DELETE FROM user WHERE userid=:userid');
-   $sth->bindParam(':firstname', $firstname);
-   $sth->bindParam(':lastname', $lastname);
-   $sth->bindParam(':password', $password);
-   $sth->bindParam(':email', $email);
-   $sth->bindParam(':qualification', $qualification);
-   $sth->bindParam(':city', $city);
-   $sth->bindParam(':state', $state);
-   $sth->bindParam(':userid', $userid);
+    $sth->bindParam(':userid', $userid);
 
 
 
