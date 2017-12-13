@@ -57,6 +57,21 @@ class EditUser{
   }
 
   }
+/*
+  
+    require_once("Logindb.php");
+
+    $user=new DBController();
+    $query="SELECT firstname,lastname,email,qualification,city,state,userid FROM user ";
+    $results=$user->runQuery($query);
+    foreach($results as $row)
+    {
+       echo $row['firstname'];
+    }*/
+
+    
+    
+  
 
 ?>
 
@@ -92,13 +107,13 @@ class EditUser{
 
     <form method="post" action="allocationedit.php">
 
-	First Name:<input type="text" name="firstname"><br>
-	Last Name:<input type="text" name="lastname"><br>
+	First Name:<input type="text" name="firstname" value="<?php echo $row['firstname'];?>"><br>
+	Last Name:<input type="text" name="lastname" value="<?php echo $row['lastname'];?>"><br>
 	Password:<input type="password" name="pass"><br>
-	Email:<input type="text" name="email"><br>
-	Qualification:<input type="text" name="qualification"><br>
-	City:<input type="text" name="city"><br>
-	State:<input type="text" name="state"><br>
+	Email:<input type="text" name="email" value="<?php echo $row['email'];?>"><br>
+	Qualification:<input type="text" name="qualification" value="<?php echo $row['qualification'];?>"><br>
+	City:<input type="text" name="city" value="<?php echo $row['city'];?>"><br>
+	State:<input type="text" name="state" value="<?php echo $row['state'];?>"><br>
 	
 
 	<input type="submit" name="submit" value="submit">

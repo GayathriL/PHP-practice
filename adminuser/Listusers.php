@@ -14,7 +14,8 @@ $results=$list->runQuery($query);
 echo "<table border='1' cellpadding='10'>";
 
 echo "<tr><th>Firstname</th> <th>Lastname</th> <th>Email</th> <th>Qualification</th> <th>City</th> <th>State</th> 
- <th>Edit</th> <th>Delete</th> <th>Enable/disable</th> </tr>";
+  <th>Userid</th>   <th>Edit</th> <th>Delete</th> </tr>";
+
 
 while($row=mysqli_fetch_array($results))
 {
@@ -33,6 +34,8 @@ while($row=mysqli_fetch_array($results))
 
   echo '<td>' .$row['state'].'</td>';
 
+  echo '<td>' .$row['userid'].'</td>';
+
 
 
 
@@ -42,6 +45,7 @@ while($row=mysqli_fetch_array($results))
 
   echo '<td><a href="deleteuser.php?firstname=' .$row['firstname']. '">Delete</a></td>';
    echo '<td>'.$row['status'].'</td>';
+
 
 
 

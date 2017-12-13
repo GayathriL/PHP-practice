@@ -5,25 +5,15 @@ class DeleteUser{
 
   private $firstname;
   private $lastname;
-  private $password;
-  private $email;
-  private $qualification;
-  private $city;
-  private $state;
   private $userid;
     
 
 
-  public function __construct($firstname,$lastname,$password,$email,$qualification,$city,$state,$userid)
+  public function __construct($firstname,$lastname,$userid)
   {
       $this->firstname=$firstname;
       $this->lastname=$lastname;
-      $this->password=$password;
-      $this->email=$email;
-      $this->qualification=$qualification;
-      $this->city=$city;
-      $this->state=$state;
-       $this->userid=$userid;
+      $this->userid=$userid;
       
   }
 
@@ -36,26 +26,6 @@ class DeleteUser{
     return $this->lastname;
   }
   
-  public function getPassword()
-  {
-    return $this->password;
-  }
-  public function getEmail()
-  {
-    return $this->email;
-  }
-  public function getQualification()
-  {
-    return $this->qualification;
-  }
-  public function getCity()
-  {
-    return $this->city;
-  }
-  public function getState()
-  {
-    return $this->state;
-  }
   public function getUserId()
   {
     return $this->userid;
@@ -91,11 +61,6 @@ class DeleteUser{
 
 	First Name:<input type="text" name="firstname"><br>
 	Last Name:<input type="text" name="lastname"><br>
-	Password:<input type="password" name="pass"><br>
-	Email:<input type="text" name="email"><br>
-	Qualification:<input type="text" name="qualification"><br>
-	City:<input type="text" name="city"><br>
-	State:<input type="text" name="state"><br>
 	Userid:<input type="text" name="userid"><br>
 	<input type="submit" name="submit" value="Delete">
 </form>

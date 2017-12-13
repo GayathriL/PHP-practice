@@ -18,7 +18,7 @@ while($row=mysqli_fetch_array($results))
 
 <?php
 
-if(($status)==1)
+if(($status)==0)
 {
 ?>
 <a href="action.php?status=<?php echo $row['userid'];?>" class="act" onclick="return confirm('Activate <?php echo $firstname?>');">
@@ -26,7 +26,7 @@ if(($status)==1)
 
 <?php
 }
-if(($status)==0)
+if(($status)==1)
 {
 ?>
 
