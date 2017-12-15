@@ -3,8 +3,6 @@
 namespace Compassite\controller;
 use Compassite\model\DBController;
 
-//require_once("../model/Logindb.php");
-
 class EnableDisablecontroller{
 
 public function enabledisable(){

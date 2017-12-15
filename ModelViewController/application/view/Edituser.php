@@ -21,13 +21,13 @@
 
     <form method="post" action="index.php?action=edit">
 
-	First Name:<input type="text" name="firstname"><br>
-	Last Name:<input type="text" name="lastname"><br>
-	Password:<input type="password" name="pass"><br>
-	Email:<input type="text" name="email"><br>
-	Qualification:<input type="text" name="qualification"><br>
-	City:<input type="text" name="city"><br>
-	State:<input type="text" name="state"><br>
+	First Name:<input type="text" name="firstname" value="<?php echo $firstname;?>"><br>
+	Last Name:<input type="text" name="lastname" value="<?php echo $lastname;?>"><br>
+	Password:<input type="password" name="pass" ><br>
+	Email:<input type="text" name="email" value="<?php echo $email;?>"><br>
+	Qualification:<input type="text" name="qualification" value="<?php echo $qualification;?>"><br>
+	City:<input type="text" name="city" value="<?php echo $city;?>"><br>
+	State:<input type="text" name="state" value="<?php echo $state;?>"><br>
 	
 
 	<input type="submit" name="submit" value="submit">

@@ -4,7 +4,7 @@ require __DIR__. '/vendor/autoload.php';
 
 if($_GET['action'] == 'home')
 {
-	$homeobj=new Compassite\controller\Home();
+	$homeobj=new Compassite\controller\HomeController();
 	$homeobj->getHome();
 }
 
@@ -14,12 +14,12 @@ $viewObj->getMyView();
 }
 
 if($_GET['action']=='view'){
-$view=new Compassite\controller\adminviewpagecontroller();
+$view=new Compassite\controller\AdminController();
 $view->adminviewpage();
 }
 
 if($_GET['action']=='list'){
-$list=new Compassite\controller\Listusers();
+$list=new Compassite\controller\AdminController();
 $list->listusers();
 }
 
@@ -31,25 +31,25 @@ if($_GET['action'] == 'loginasuser')
 
 if($_GET['action'] == 'loginuser')
 {
-	$loginuser=new Compassite\controller\Loginuser();
+	$loginuser=new Compassite\controller\UserController();
 	$loginuser->loginuser();
 }
 
 if($_GET['action'] == 'userprofile')
 {
-	$profilechange=new Compassite\controller\UserProfileChangeController();
+	$profilechange=new Compassite\controller\UserController();
 	$profilechange->userprofilechange();
 }
 
 if($_GET['action'] == 'edit')
 {
-	$useredit=new Compassite\controller\EditUserController();
+	$useredit=new Compassite\controller\UserController();
 	$useredit->edituser();
 }
 
 if($_GET['action'] == 'delete')
 {
-	$userdelete=new Compassite\controller\DeleteUserController();
+	$userdelete=new Compassite\controller\UserController();
 	$userdelete->deleteuser();
 }
 

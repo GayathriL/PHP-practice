@@ -11,6 +11,8 @@ class DBController {
 	private $conn;
 	public $pdo;
 	
+
+	
 	 public function __construct() {
 		$host = "localhost";
 		$database = "adminuser";
@@ -60,7 +62,7 @@ class DBController {
 		return $rowcount;	
 	}
 	public function addUser($user)
-{
+    {
 	$firstname=$user->getFirstName();
 	$lastname=$user->getLastName();
 	$password=md5($user->getPassword());
@@ -85,11 +87,9 @@ class DBController {
 
    $sth->execute();
 
-   
-   
+ }
 
 
-}
 
 public function editUser($edituser)
 {
@@ -114,7 +114,32 @@ public function editUser($edituser)
    $sth->bindParam(':state', $state);
 
    $sth->execute();
+}
 
+public function getUser()
+{ 
+
+ $firstname='';
+ $lastname='';
+ $email='';
+ $qualification='';
+ $city='';
+ $state='';
+
+
+ if(isset($_GET['userid'])){
+
+ 	$id=$_GET['userid'];
+ 	$stmt=$conn->prepare("SELECT * FROM user WHERE userid=:id");
+ 	$stmt->execute(array(':id' => $id));
+ 	$row->$stmt->fetch();
+ 	$firstname=$row['firstname'];
+ 	$lastname=$row['lastname'];
+ 	$email=$row['email'];
+ 	$qualification=$row['qualification'];
+ 	$city=$row['city'];
+ 	$state=$row['state'];
+ }
 }
 
 public function DeleteUser($deleteuser)
