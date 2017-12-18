@@ -1,8 +1,5 @@
 <html>
-
-
 <style>
-
 
 #Sign-In{ 
 	margin-top:150px; 
@@ -17,6 +14,7 @@
 	box-shadow: 7px 7px 6px; 
 }
 </style>
+
 <body>
 	<div id="Sign-In"> 
 	<fieldset style="width:30%"><legend>LOG-IN HERE</legend>
@@ -25,6 +23,7 @@
 	Username:<input type="text" name="name" size="30"><br>
 	Password:<input type="password" name="pass" size="30"><br>
 	<input type="submit" name="submit" value="Login">
+    
     </form>
 </fieldset>
 </div>

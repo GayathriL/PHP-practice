@@ -4,7 +4,6 @@ namespace Compassite\controller;
 
 use Compassite\model\DBController;
 
-//include("../model/Logindb.php");
 
 class ActionController{
 

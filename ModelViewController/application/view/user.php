@@ -17,16 +17,24 @@
 <body>
 	<div id="Sign-In"> 
 	<fieldset style="width:30%"><legend>REGISTER HERE</legend>
+	<p><span class="error"></span></p>
 
 	<form action="index.php?action=loginasuser" method="post">
 
-	First Name:<input type="text" name="firstname"><br>
-	Last Name:<input type="text" name="lastname"><br>
-	Password:<input type="password" name="pass"><br>
-	Email:<input type="text" name="email"><br>
-	Qualification:<input type="text" name="qualification"><br>
-	City:<input type="text" name="city"><br>
-	State:<input type="text" name="state"><br>
+	First Name:<input type="text" name="firstname">
+	<span class="error"><?php echo $firstnameErr;?></span><br>
+	Last Name:<input type="text" name="lastname">
+	<span class="error"><?php echo $lastnameErr;?></span><br>
+	Password:<input type="password" name="pass">
+	<span class="error"><?php echo $passwordErr;?></span><br>
+	Email:<input type="text" name="email">
+	<span class="error"><?php echo $emailErr;?></span><br>
+	Qualification:<input type="text" name="qualification">
+	<span class="error"><?php echo $qualificationErr;?></span><br>
+	City:<input type="text" name="city">
+	<span class="error"><?php echo $cityErr;?></span><br>
+	State:<input type="text" name="state">
+	<span class="error"><?php echo $stateErr;?></span><br>
 	
     <input type="button" name="login" onclick="location.href='index.php?action=loginuser';" value="Login">
 	<input type="submit" name="submit" value="Register">

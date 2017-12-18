@@ -53,6 +53,12 @@ if($_GET['action'] == 'delete')
 	$userdelete->deleteuser();
 }
 
+if($_GET['action'] == 'validation')
+{
+	$validate=new Compassite\controller\UserController();
+	$validate->registervalidate;
+}
+
 if($_GET['action'] == 'enable')
 {
 	$disable=new Compassite\controller\EnableDisablecontroller();

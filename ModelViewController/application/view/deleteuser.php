@@ -23,6 +23,7 @@
 	Last Name:<input type="text" name="lastname"><br>
 	Userid:<input type="text" name="userid"><br>
 	<input type="submit" name="submit" value="Delete">
+
 </form>
 </fieldset>
 </div>
