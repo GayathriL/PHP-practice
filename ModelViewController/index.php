@@ -1,26 +1,25 @@
 <?php
-
+session_start();
 require __DIR__. '/vendor/autoload.php';
 
-if($_GET['action'] == 'home')
-{
-	$homeobj=new Compassite\controller\HomeController();
-	$homeobj->getHome();
+if($_GET['action'] == 'home') {
+    $homeobj=new Compassite\controller\HomeController();
+    $homeobj->getHome();
 }
 
-if($_GET['action']=='login'){
-$viewObj=new Compassite\controller\AdminController();
-$viewObj->getMyView();
+if($_GET['action']=='login') {
+	$viewObj=new Compassite\controller\AdminController();
+	$viewObj->getMyView();
 }
 
-if($_GET['action']=='view'){
-$view=new Compassite\controller\AdminController();
-$view->adminviewpage();
+if($_GET['action']=='view') {
+	$view=new Compassite\controller\AdminController();
+	$view->adminviewpage();
 }
 
-if($_GET['action']=='list'){
-$list=new Compassite\controller\AdminController();
-$list->listusers();
+if($_GET['action']=='list') {
+	$list=new Compassite\controller\AdminController();
+	$list->listusers();
 }
 
 if($_GET['action'] == 'loginasuser')
