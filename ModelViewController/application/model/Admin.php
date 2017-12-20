@@ -4,9 +4,9 @@ namespace Compassite\model;
 
 use Compassite\model\DBConnection;
 
-class User
-{
-    
+
+class Admin{
+
     private $firstname;
     private $lastname;
     private $password;
@@ -14,10 +14,11 @@ class User
     private $qualification;
     private $city;
     private $state;
+    private $userid;
     private $pdo;
     CONST STATUS=0;
 
-    public function __construct($firstname, $lastname, $password, $email, $qualification, $city, $state, $STATUS)
+    public function __construct($firstname=null, $lastname=null, $password=null, $email=null, $qualification=null, $city=null, $state=null, $userid=null, $STATUS=null)
     {
         $this->firstname     = $firstname;
         $this->lastname      = $lastname;
@@ -26,10 +27,10 @@ class User
         $this->qualification = $qualification;
         $this->city          = $city;
         $this->state         = $state;
+        $this->userid        = $userid;
         $this->STATUS        = $STATUS;
- 
-        $this->dbObj = new DBConnection();
 
+        $this->dbObj = new DBConnection();
     }
 
     
@@ -63,41 +64,16 @@ class User
     {
         return $this->state;
     }
+    public function getUserId()
+    {
+        return $this->userid;
+    }
     public function getStatus()
     {
         return self::STATUS;
     }
 
-    public function addUser($user)
-    {
-        $firstname     = $user->getFirstName();
-        $lastname      = $user->getLastName();
-        $password      = md5($user->getPassword());
-        $email         = $user->getEmail();
-        $qualification = $user->getQualification();
-        $city          = $user->getCity();
-        $state         = $user->getState();
-        $STATUS        = $user->getStatus();
-        
-        
-        $sth = $this->dbObj->pdo->prepare('INSERT INTO user(firstname,lastname,password,email,qualification,city,state,STATUS) VALUES(:firstname,
-       :lastname,:password,:email,:qualification,:city,:state,:STATUS)');
-        
-        $sth->bindParam(':firstname', $firstname);
-        $sth->bindParam(':lastname', $lastname);
-        $sth->bindParam(':password', $password);
-        $sth->bindParam(':email', $email);
-        $sth->bindParam(':qualification', $qualification);
-        $sth->bindParam(':city', $city);
-        $sth->bindParam(':state', $state);
-        $sth->bindParam(':STATUS', $STATUS);
-        
-        
-        $sth->execute();
-        
-    }
-
-     public function editUser($edituser)
+    public function editUser($edituser)
     {
         $firstname     = $edituser->getFirstName();
         $lastname      = $edituser->getLastName();
@@ -106,10 +82,9 @@ class User
         $qualification = $edituser->getQualification();
         $city          = $edituser->getCity();
         $state         = $edituser->getState();
-        $STATUS        = $edituser->getStatus();
         
         $sth = $this->dbObj->pdo->prepare('UPDATE user SET firstname=:firstname,lastname=:lastname,password=:password,email=:email,
-                         qualification=:qualification,city=:city,state=:state,STATUS=:STATUS WHERE firstname=:firstname');
+                         qualification=:qualification,city=:city,state=:state WHERE firstname=:firstname');
         
         
         $sth->bindParam(':firstname', $firstname);
@@ -119,13 +94,39 @@ class User
         $sth->bindParam(':qualification', $qualification);
         $sth->bindParam(':city', $city);
         $sth->bindParam(':state', $state);
-        $sth->bindParam(':STATUS', $STATUS);
         
         $sth->execute();
     }
 
-    
-    
+    public function DeleteUser($deleteuser)
+    {
+        $firstname = $deleteuser->getFirstName();
+        $lastname  = $deleteuser->getLastName();
+        $userid    = $deleteuser->getUserId();
         
-    
+         
+        $sth = $this->dbObj->pdo->prepare('DELETE FROM user WHERE userid=:userid');
+        $sth->bindParam(':userid', $userid); 
+        $sth->execute();
+        
+    }
+
+    public function Status_Enable($enable)
+    {
+        $userid    = $enable->getUserId();
+
+        $sth = $this->dbObj->pdo->prepare('UPDATE user SET status = " .self::DISABLE." WHERE userid=$userid');
+        $sth->bindParam(':userid', $userid);
+        return $sth->execute();
+    }
+
+    public function Status_Disable($disable)
+    {
+        $userid    = $disable->getUserId();
+
+        $sth = $this->dbObj->pdo->prepare('UPDATE user SET status = ".self::ENABLE." WHERE userid=$userid');
+        $sth->bindParam(':userid',$userid);
+        return $sth->execute();
+    }
+
 }

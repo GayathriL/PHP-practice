@@ -2,16 +2,16 @@
 
 namespace Compassite\controller;
 
-use Compassite\model\DBController;
+use Compassite\model\DBConnection;
+use Compassite\model\Admin;
 
 class AdminController
 {
-    public function getMyView()
+    public function loginadmin()
     {
         
-        session_start();
         
-        $login = new DBController();
+        $login = new DBConnection();
         
         if (isset($_POST['submit'])) {
             
@@ -41,7 +41,7 @@ class AdminController
             
             
         }
-        require "/var/www/html/PHP-practice/ModelViewController/application/view/Loginadmin.php";
+        require "/var/www/html/PHP-practice/ModelViewController/application/view/Adminview/Loginadmin.php";
         
     }
     
@@ -49,55 +49,80 @@ class AdminController
     public function adminviewpage()
     {
         
-        session_start();
         $username = $_SESSION['adusername'];
         $password = $_SESSION['password'];
         echo "Login successfully" . "<br><br>";
         echo "Welcome ";
         echo $username . "<br><br>";
-        require "/var/www/html/PHP-practice/ModelViewController/application/view/adminviewpage.php";
+        require "/var/www/html/PHP-practice/ModelViewController/application/view/Adminview/adminviewpage.php";
     }
     
     
     public function listusers()
     {
         
-        $list    = new DBController();
+        $list    = new DBConnection();
         $query   = "SELECT firstname,lastname,email,qualification,city,state,userid FROM user";
         $results = $list->runQuery($query);
-        echo "<table border='1' cellpadding='10'>";
-        echo "<tr><th>Firstname</th> <th>Lastname</th> <th>Email</th> <th>Qualification</th> <th>City</th> <th>State</th> 
-        <th>Userid</th>   <th>Edit</th> <th>Delete</th> </tr>";
-        
-        while ($row = mysqli_fetch_array($results)) {
-            
-            echo "<tr>";
-            
-            echo '<td>' . $row['firstname'] . '</td>';
-            
-            echo '<td>' . $row['lastname'] . '</td>';
-            
-            echo '<td>' . $row['email'] . '</td>';
-            
-            echo '<td>' . $row['qualification'] . '</td>';
-            
-            echo '<td>' . $row['city'] . '</td>';
-            
-            echo '<td>' . $row['state'] . '</td>';
-            
-            echo '<td>' . $row['userid'] . '</td>';
-            
-            echo '<td><a href="index.php?action=edit">Edit</a></td>';
-            
-            echo '<td><a href="index.php?action=delete">Delete</a></td>';
-            
-            echo '<td>' . $row['status'] . '</td>';
-            
-            
-            echo "</tr>";
-        }
-        
-        echo "</table>";
+        require "/var/www/html/PHP-practice/ModelViewController/application/view/Adminview/listusers.php";
     }
+
+    public function edituser()
+    {
+
+        $firstname=$_POST['firstname'];
+        $lastname=$_POST['lastname'];
+        $password=md5($_POST['password']);
+        $email=$_POST['email'];
+        $qualification=$_POST['qualification'];
+        $city=$_POST['city'];
+        $state=$_POST['state'];
+
+        $edituser=new Admin($firstname,$lastname,$password,$email,$qualification,$city,$state,$STATUS);
+
+
+        $edituser->editUser($edituser);
+
+        require "/var/www/html/PHP-practice/ModelViewController/application/view/Adminview/Edituser.php";
+
+    }
+
+
+
+    public function deleteuser()
+    {
+
+        $firstname=$_POST['firstname'];
+        $lastname=$_POST['lastname'];
+        $userid=$_POST['userid'];
+
+        $deleteuser=new Admin($firstname,$lastname,$userid);
+
+        $deleteuser->DeleteUser($deleteuser);
+        require "/var/www/html/PHP-practice/ModelViewController/application/view/Adminview/deleteuser.php";
+    }
+
+    public function status()
+    {
+        $userid = $_GET['userid'];
+
+        $admin = new Admin();
+
+        if(isset($_REQUEST['disablesubmit']))
+        {
+            extract($_REQUEST);
+            $disable = $admin->Status_Disable($_POST['disableuser']);
+        }
+        if(isset($_REQUEST['enablesubmit']))
+        {
+            extract($_REQUEST);
+            $enable = $admin->Status_Enable($_POST['enableuser']);
+        }
+
+        require "/var/www/html/PHP-practice/ModelViewController/application/view/Adminview/listusers.php";
+    }
+
+    
+
     
 }

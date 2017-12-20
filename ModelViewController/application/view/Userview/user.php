@@ -19,7 +19,7 @@
 	<fieldset style="width:30%"><legend>REGISTER HERE</legend>
 	<p><span class="error"></span></p>
 
-	<form action="index.php?action=loginasuser" method="post">
+	<form action="index.php?action=register" method="post">
 
 	First Name:<input type="text" name="firstname">
 	<span class="error"><?php echo $firstnameErr;?></span><br>

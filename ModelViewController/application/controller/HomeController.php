@@ -11,5 +11,3 @@ class HomeController
         require "/var/www/html/PHP-practice/ModelViewController/application/view/Home.php";
     }
 }
-
-?>
